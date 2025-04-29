@@ -62,7 +62,10 @@
             <td>{{ emp.department }}</td>
             <td>{{ emp.jobTitle }}</td>
             <td>{{ emp.active ? 'Yes' : 'No' }}</td>
-            <td><button class="delete-btn" (click)="deleteEmployee(emp.id)">Delete</button></td>
+            <td>
+                <button (click)="editEmployee(emp)">Edit</button>
+                <button (click)="onDelete(emp.id)">Delete</button>
+              </td>
           </tr>
         </tbody>
       </table>

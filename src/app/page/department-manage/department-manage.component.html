@@ -24,7 +24,7 @@
             <div class="btn-group">
               <button type="submit" (click)="submitForm()">Add</button>
               <button type="button" (click)="onUpdate()">Update</button>
-              <button type="button" (click)="onSearch()">Search</button>
+              <button type="button" (click)="onSearch(searchId.value)">Search</button>
             </div>
           </form>
         </div>
@@ -46,7 +46,7 @@
               <td>{{ dept.id }}</td>
               <td>{{ dept.name }}</td>
               <td>{{ dept.description }}</td>
-              <td><button class="delete-btn" (click)="deleteDepartment(dept.id)">Delete</button></td>
+              <td><button class="delete-btn" (click)="onDelete(emp.id)">Delete</button></td>
             </tr>
           </tbody>
         </table>

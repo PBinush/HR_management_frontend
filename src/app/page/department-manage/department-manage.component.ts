@@ -14,6 +14,9 @@ import { DepartmentManageService } from '../../service/department-manage.service
 export class DepartmentManageComponent implements OnInit{
 departmentList: Department[]=[];
 departmentForm!: FormGroup;
+searchId: any;
+emp: any;
+
 
 constructor(private departmentService:DepartmentManageService,private fb:FormBuilder){}
 ngOnInit(): void {
@@ -50,15 +53,42 @@ submitForm() {
   });
 }
 
-onUpdate() {
-throw new Error('Method not implemented.');
+onSearch(id: number): void {
+  this.departmentService.getDepartmentById(id).subscribe({
+    next: (department) => {
+      this.departmentForm.patchValue(department); // populate form fields
+    },
+    error: () => {
+      alert('Department not found');
+    }
+  });
 }
-onSearch() {
-throw new Error('Method not implemented.');
+
+onUpdate(): void {
+  const updatedDepartment: Department = this.departmentForm.value;
+  this.departmentService.updateDepartment(updatedDepartment).subscribe({
+    next: (msg) => {
+      alert(msg);
+    },
+    error: () => {
+      alert('Update failed');
+    }
+  });
 }
-deleteDepartment(arg0: any) {
-throw new Error('Method not implemented.');
+
+onDelete(id: number): void {
+  if (confirm('Are you sure to delete this department?')) {
+    this.departmentService.deleteDepartment(id).subscribe({
+      next: (msg) => {
+        alert(msg);
+        this.departmentList = this.departmentList.filter(e => e.id !== id);
+      },
+      error: () => {
+        alert('Delete failed');
+      }
+    });
+  }
 }
-  
+
  
 }
