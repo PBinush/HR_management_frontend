@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/main-ui/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <i class="bi bi-house-door-fill"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/main-ui/employee-manage" routerLinkActive="active">
+                <i class="bi bi-file-earmark-person"></i>
+                <span>Employee Manage</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/main-ui/department-manage" routerLinkActive="active">
+                <i class="bi bi-people-fill"></i>
+                <span>Department Manage</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/main-ui/job-title-manage" routerLinkActive="active">
+                <i class="bi bi-file-earmark-break-fill"></i>
+                <span>Job Title Manage</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="">
+                <i class="bi bi-file-earmark-check-fill"></i>
+                <span>View Audit</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Main content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+  
