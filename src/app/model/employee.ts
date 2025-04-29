@@ -1,5 +1,5 @@
 export class Employee{
-    id?: number;
+    id: number;
     employeeCode!: string;
     name!: string;
     email!: string;
@@ -11,7 +11,7 @@ export class Employee{
     department!: string;
     jobTitle!: string;
     active!: boolean;
-    updateBy?: number;
+    updateBy: number;
 
     constructor(
         id: number,
